@@ -16,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Finanças Pessoais",
+  title: { default: "Finanças Pessoais", template: "%s · Finanças Pessoais" },
   description: "Controle financeiro pessoal",
+  robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
