@@ -4,7 +4,7 @@ export const LOGIN_PATH = "/login";
 export const DEFAULT_AUTHENTICATED_PATH = "/dashboard";
 
 /** Rotas acessíveis sem sessão. Todo o resto exige login. */
-const PUBLIC_PATHS = [LOGIN_PATH, "/auth/callback", "/auth/auth-code-error"] as const;
+const PUBLIC_PATHS = [LOGIN_PATH, "/auth/callback"] as const;
 
 export function isPublicPath(pathname: string): boolean {
   return PUBLIC_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`));

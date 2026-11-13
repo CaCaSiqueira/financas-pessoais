@@ -1,6 +1,6 @@
 "use client";
 
-import { LogOut } from "lucide-react";
+import { LogOut, UserRound } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -13,13 +13,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "@/features/auth/actions";
-
-function initials(nome: string | null, email: string | null) {
-  const parts = (nome ?? email ?? "?").trim().split(/\s+/).filter(Boolean);
-  const first = parts[0]?.[0] ?? "?";
-  const last = parts.length > 1 ? (parts[parts.length - 1]?.[0] ?? "") : "";
-  return (first + last).toUpperCase();
-}
 
 export function UserMenuDropdown({
   nome,
@@ -36,9 +29,12 @@ export function UserMenuDropdown({
         aria-label="Abrir menu da conta"
         className="rounded-full outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
       >
-        <Avatar className="size-9">
+        {/* Decorativo: o nome acessível vem do aria-label do botão. */}
+        <Avatar className="size-9" aria-hidden="true">
           {avatarUrl ? <AvatarImage src={avatarUrl} alt="" referrerPolicy="no-referrer" /> : null}
-          <AvatarFallback>{initials(nome, email)}</AvatarFallback>
+          <AvatarFallback className="bg-secondary text-secondary-foreground">
+            <UserRound className="size-5" />
+          </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">

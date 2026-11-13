@@ -10,7 +10,7 @@ import {
 } from "./session";
 
 describe("isPublicPath / isProtectedPath", () => {
-  it.each(["/login", "/auth/callback", "/auth/auth-code-error"])("%s é pública", (path) => {
+  it.each(["/login", "/auth/callback"])("%s é pública", (path) => {
     expect(isPublicPath(path)).toBe(true);
     expect(isProtectedPath(path)).toBe(false);
   });

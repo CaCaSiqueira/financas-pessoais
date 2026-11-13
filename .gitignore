@@ -46,3 +46,7 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# saídas locais de revisão
+/.review/
+/scripts/review-*.mjs
